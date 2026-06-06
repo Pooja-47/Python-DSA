@@ -6,7 +6,7 @@
 think of it as saying-
            "Counting from here to there"
 
-range(start,stop,step)   # prints from starting digit to (stop digit - 1)
+range(start, stop, step)   # generates numbers from start to stop-1
 default start=0
 default step=1
 There is no default value for stop you will have to mention it manually always and increase actual stop by 1.
@@ -50,7 +50,7 @@ for i in range(5,(5*10)+1,5):
     print(i)
 print()
 
-# print table of any input value:
+# Print the table of any input number:
 n=int(input("Enter the number of which table you want to print:"))
 for i in range(1,11,1):
     print(f"{n} x {i} = {n*i} ")
@@ -66,10 +66,10 @@ print()
 
 """2. using indexing:"""
 # we use range functions because indexing is done in numbers
-# len() it is a function usd to print the length of string
+# len() is a function used to get the length of a string
 
 string="Students"
-for i in range(0,len(string),1):   # len(string) = 8  so for loop runs for (stop-1) 7 times 
+for i in range(0,len(string),1):   # len(string)=8, so i goes from 0 to 7 
     print(f"{i} : {string[i]}") 
 print()
 
@@ -77,7 +77,7 @@ print()
 """There are some conditions used in loops:
 1. break = completely stops the loop and gets out of it
 2. continue = skips one iteration
-3. else = it works with break (if break runs else don't run and vice versa)
+3. else = executes only if the loop finishes without encountering break
 """   
 # 1. break
 for i in range(1,11,1):

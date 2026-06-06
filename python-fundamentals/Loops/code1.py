@@ -20,7 +20,7 @@ Loops allow you to repeat a block of code without rewriting it .
 
 Let us imagine we have 2 buckets:
     B1 bucket fully filled with water.
-    B2 empty bucket
+    B2 empty bucket.
 
 Now your task using a mug :
     1. remove water from B1 and transfer it to B2 4 times.
@@ -41,5 +41,6 @@ Now your task using a mug :
 * We generally use a "for" loop when we want to iterate over a sequence
 or when we know how many times a task should be repeated.
 
-* We use " while " loop when we don't know the number but there is a condition when to stop.
+* * We use a "while" loop when we don't know the number of repetitions,
+but there is a condition that determines when to stop.
 """
