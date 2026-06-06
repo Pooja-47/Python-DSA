@@ -18,6 +18,9 @@ if condition :
 
 -> condition always returns boolean datatype either True or False.
 -> if block runs when the condition is true otherwise the interpretor skips if block.
+-> Python uses indentation (spaces or tabs at the beginning of a line)
+   to identify which statements belong to a block.
+-> All statements inside the same block must have the same indentation level.
 """
 if True:
     print("Hello") # the condition is true, if block runs (prints Hello)
@@ -46,6 +49,7 @@ if age>=18:
 -> The interpretor runs code line by line so it will always print this statement 
 
 ==> print("You can not vote.") # This is open statement not control flow statement
+
 
 -> To solve the above issue we have 
 else statement:
@@ -95,6 +99,18 @@ else:
 # IMPORTANT NOTES:__
 """
 ==>
+
+Python does not use {} like many other programming languages.
+Instead, it uses indentation to define blocks of code.
+
+Example:
+
+if True:
+    print("Inside block")  
+
+print("Outside block")  
+
+==>
 if condition:
     runs when condition is True.
 
@@ -112,12 +128,13 @@ if-else    use: two paths-- True or False
 if-elif-else   use: multiple conditions checked one by one
 
 ==>
-Always, only one statement runs at a time no any two statements can run together.
-Known as ladder
+==>
+In an if-elif-else ladder, only one block runs at a time.
+Once a True condition is found, Python executes that block and skips the remaining elif and else blocks.
 
 ==>
-Priotity order:-
-if : True then exicute otherwise move to elif or else 
+Priority order:-
+if : True then execute otherwise move to elif or else 
 
 1st elif : True then execute otherwise next elif... so on
 2nd elif

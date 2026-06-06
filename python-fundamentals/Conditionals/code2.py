@@ -20,7 +20,7 @@ elif num2>num1:
     print(f"{num2} is greatest.")
 else:
     print("Both the numbers are equal.")
-
+print()
 
 # Q2 Accept gender from user and print a greeting message.
 
@@ -32,6 +32,7 @@ elif gender=="M" or gender=="m":
     print("Good morning sir")
 else:
     print("Others")
+print()
 
 # Q3 Accept an integer and check if it is even or odd.
 
@@ -41,6 +42,7 @@ if integer % 2 == 0:
     print(f"Given integer {integer} is Even.")
 else:
     print(f"Given integer {integer} is Odd.")
+print()
 
 # Q4 Accept name and age — check if the user is a valid voter (18+).
 
@@ -51,6 +53,7 @@ if age >= 18:
     print(f"Congrats {name}! You can vote.") 
 else:
     print(f"Sorry {name}! Can't vote yet. You can vote after {18 - age} years.") 
+print()
 
 # Q5 Accept a year and check if it is a leap year.
 
@@ -62,6 +65,7 @@ elif year % 100 != 0 and year % 4 == 0:
     print("It is leap year")
 else:
     print("Not a leap year")
+print()
 
 # Q6 — Temperature Ladder
 """ Accept temperature in °C and print a description.
