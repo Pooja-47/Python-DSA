@@ -8,7 +8,7 @@ Here:
 list_name is the name of list, it can be anything like variable names
 Values (Separated by comma and can be of different data types) are written in squared brackets []
 
-a=[1,12.4,True,"hello",print()]
+a=[1,12.4,True,"hello",print()]   # Heterogeneous in nature (can store values of different data types)
 
 You can store anything (any datatype, data structure, function)
 
@@ -18,10 +18,14 @@ fruits=[1,"Mango",2,"Grapes",3,"Lichi"]
 print("Type of fruits is",type(fruits),"\n")
 print("fruits is",fruits,"\n")
 
+# Length of list:
+""" Using len function {len()}"""
+print(f"Length of fruits: {len(fruits)}\n")
+
 # Properties of Lists:
 """
 1 Ordered: 
-For every element of list order is defined
+Elements in a list maintain the order in which they are inserted.
 Lists use indexing like strings, so they are ordered.
 Their elements (values) can be accessed using indexes.
 """
@@ -33,7 +37,7 @@ print(list[0])    # Hello
 print(list[1])    # Mic Testing
 print(list[2])    # 1
 print(list[3])    # 2
-print(list[4])    # 3
+print(list[4],"\n")    # 3
 
 """
 2 Mutable:
@@ -46,14 +50,34 @@ a[-1]=O   # this shows error bcoz Strings are immutable"""
 age=[20,30,40,50]
 print(age)
 age[0]=10
-print(age)
+print(f"after changing: {age}\n")
 
 """
 3 Duplicacy:
 Lists allow duplicate values.
 """
 duplicates=[100, 200, 300, 100, 100, 200,300,300,300]
-print(duplicates)
+print(duplicates,"\n")
+
+# List slicing:
+""" 
+# Slicing is used to access a portion of a list.
+Same as in strings.
+"""
+days=["Monday","Tuesday","Wednesday","Thursday","Friday"]
+print(days)
+print(f"Slicing from 0 to 5: {days[:5]}")
+print(f"Reverse of list: {days[::-1]}\n")
+
+# Membership operators:
+"""
+Two membership operators:
+'in' and 'not in' are used to check whether an element exists in a list.
+"""
+fruits = ["Mango", "Apple", "Grapes"]
+print(fruits)
+print(f'"Apple" in fruits: {"Apple" in fruits}')
+print(f'"Banana" not in fruits: {"Banana" not in fruits}\n')
 
 # Traversing on lists:
 """
@@ -61,13 +85,14 @@ Traversing means iterating through a list and accessing its elements one by one.
 """
 # Traversing on values-
 a=[20,30,40,50,60,70,80,90,100]
+print(a)
 for i in a:
-    print(i)  # i access values
+    print("Using values",i)  # i access values
 
 # Traversing on index:
 a=[20,30,40,50,60,70,80,90,100]
 for i in range(0,len(a)):
-    print(f"{i}={a[i]}")   # i access the index
+    print(f"Using index: {i}={a[i]}\n")   # i access the index
 
 # Methods on lists:
 """
@@ -77,33 +102,36 @@ list_name.method(object)
 """
 a=[20,30,40,50,60,70,80,90,100]
 a.append(200)   # Adds an element at the end of the list
+print("Appended 200:",a)
 
 a.insert(0,10)   # insert(index,object) adds element at given index
-
-print(a)
+print("Inserted 10 at index 0:",a,"\n")
 
 a=[10,20,30,40,50,60,70,80,90,100,200]
 
-a.pop()  # pop(index,object) removes an element and returns it
+a.pop()  # pop(index) removes and returns the element at the given index
 # by default index is -1
 
 b=a.pop()
-print(a,"   ",b)
+print(f"Default pop: {a}, {b}")
 
 a.pop(2)       # removes object at index 2
-print(a)  
+print(f"Pop value at index 2: {a}\n")  
 
 a=[10,20,30,40,50,60,70,80,90,100,200]
 a.remove(20)  # Removes the first occurrence of the given value and does not return it
+print(a)
 a.clear()    # remove all the elements make the list empty
+print(a)
 
 a=[21,23,12,9,56,101,0,45,334,56,123,56,3,1,1,22,22]
 a.sort()  # Sorts the list in ascending order
-print(a)
+print(f"Sorted in ascending order: {a}")
 a.sort(reverse=True)  # in descending order
-print(a)
+print(f"Sorted in descending order: {a}\n")
 
 a.reverse()  # Reverses the order of elements in the list
+print(f"Reverse of a: {a}\n")
 
 # Practice questions on list:
 
@@ -144,9 +172,14 @@ print(f"Your largest value is: {largest} at index: {index}")
 # Q4 Find the second greatest element.
 
 list4=[4, 8, 2, 9, 1,10,8,11]
+
+# Method1 using sorting:
+"""
 list4.sort()
 print(list4[-2])
+"""
 
+# Method2:
 largest=list4[0]
 second_largest=list4[0]
 for i in list4:
