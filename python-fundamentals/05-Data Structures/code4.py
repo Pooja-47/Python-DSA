@@ -61,8 +61,18 @@ print()
 
 set4={10,20,30,40}
 print(f"set4: {set4}\n")
+
 """
-1. add():
+1. copy():
+Returns the copy of the set.
+"""
+
+set4.copy()  # returns copy
+copy=set4.copy()  # stored copy of set
+print(f"set4.copy: {copy}\n")
+
+"""
+2. add():
 We can add the elements which do not exist in the set.
 If we try to add already existing element then the set remains unchanged.
 """
@@ -72,11 +82,11 @@ set4.add(50)
 print(f"Set4 after add(50): {set4}\n")
 
 """
-2. discard():
+3. discard():
 Removes the specified item.
 Does NOT raise an error if the item does not exist.
 
-3. remove():
+4. remove():
 Removes the specified item.
 Raises KeyError if the item does not exist.
 """
@@ -88,7 +98,7 @@ print(f"set4 after remove(20): {set4}\n")
 # set4.remove(70)  # Raises KeyError because 70 does not exist
 
 """
-4. pop():
+5. pop():
 Removes and returns an arbitrary element from the set.
 Since sets are unordered, we cannot predict which element will be removed.
 """
@@ -98,11 +108,144 @@ print(f"Popped element a: {a}")
 print(f"set4 after pop(): {set4}\n")
 
 """
-5. clear():
+6. clear():
 Removes all the elements of the set and makes it empty.
 """
 set4.clear()
-print(f"set4 after clear(): {set4}")
+print(f"set4 after clear(): {set4}\n")
+
+# Now movig to the methods that work on two sets:
+s1={10,20,30,40}
+print(f"set s1: {s1}")
+s2={30,40,50,60}
+print(f"set s2: {s2}\n")
+
+"""
+1. difference() or - :
+Returns a new set containing elements that are present in the first set
+but not in the other set(s).
+"""
+s1.difference(s2)   # Returns elements that are present in s1 but not in s2
+diff=s1.difference(s2)
+print(f"difference between s1 and s2(s1 - s2): {diff}\n")
+
+s2.difference(s1)   # Returns elements that are present in s2 but not in s1
+diff=s2.difference(s1)
+print(f"difference between s2 and s1(s2 - s1): {diff}\n")
+# Another way:
+print(f"s1-s2 is {s1-s2}") 
+print(f"s2-s1 is {s2-s1}\n")
+
+"""
+2. difference_update() or -= :
+Removes all elements from this set that are also present in another set.
+The original set is modified in place.
+"""
+
+s1.difference_update(s2)    # Equivalent to: s1 -= s2
+print(f"s1 is updated after s1.difference_update(s2): {s1}")
+print(f"s2 is unchanged after s1.difference_update(s2): {s2}")
+
+s2.difference_update(s1)   # Equivalent to: s2 -= s1
+print(f"s2 is updated after s2.difference_update(s1): {s2}")
+print(f"s1 is unchanged after s2.difference_update(s1): {s1}\n")
 
 
+s1={10,20,30,40}
+print(f"set s1: {s1}")
+s2={30,40,50,60}
+print(f"set s2: {s2}\n")
 
+"""
+3. intersection() or & :
+Returns a new set containing elements common to both sets.
+The order of the sets does not affect the result.
+"""
+
+s1.intersection(s2) 
+intersect=s1.intersection(s2)
+print(f"intersection after s1.intersection(s2): {intersect}")
+
+print(f"intersection of s2 & s1: {s2 & s1}\n")
+
+"""
+4. intersection_update() or &= :
+Updates the set in place, keeping only the elements
+that are common to both sets.
+"""
+
+s1 &= s2
+print(f"s1 after s1 &= s2: {s1}")
+s2 &= s1
+print(f"s2 after s2 &= s1: {s2}\n")
+
+s1={10,20,30,40}
+print(f"set s1: {s1}")
+s2={30,40,50,60}
+print(f"set s2: {s2}")
+s3={10,20}
+print(f"set s3: {s3}\n")
+
+"""
+5. issubset() or <= or < :
+Checks whether all elements of one set are contained in another set.
+
+<= : True if this set is a subset of the other set (equal sets allowed).
+<  : True only if this set is a proper subset of the other set.
+"""
+print(f"is s3.issubset(s1): {s3.issubset(s1)}") # True because every element of s3 exists in s1
+print(f"is s3 <= s1: {s3 <= s1}")
+print(f"is s3 < s1: {s3 < s1}\n")
+print(f"is s1 <= s3: {s1 <= s3}")
+print(f"is s1 < s3: {s1 < s3}")
+print(f"is s2 <= s3: {s2 <= s3}")
+print(f"is s2 < s3: {s2 < s3}\n")
+
+"""
+6. issuperset() or >= or > :
+Checks whether this set contains all elements of another set.
+
+>= : True if this set is a superset of the other set (equal sets allowed).
+>  : True only if this set is a proper superset of the other set.
+"""
+print(f"s1.issuperset(s3): {s1.issuperset(s3)}") # True as all items of s3 are in s1 with more items
+print(f"is s3 >= s1: {s3 >= s1}")
+print(f"s1 >= s3: {s1 >= s3}\n")
+
+"""
+7. symmetric_difference() or ^ :
+Returns a new set containing elements that exist in either set,
+but not in both.
+"""
+s1.symmetric_difference(s2)  
+print(f"Symmetric difference of s1 and s2: {s1.symmetric_difference(s2)}")
+
+"""
+8. symmetric_difference_update() or ^= :
+Updates the set in place, keeping only elements that are present
+in either set but not in both.
+"""
+# Updates s1 with the symmetric difference; s2 remains unchanged
+print(f"s1 after s1 ^= s2: {s1}")
+
+
+s1 = {10,20,30,40}
+s2 = {30,40,50,60}
+
+print(f"set s1: {s1}")
+print(f"set s2: {s2}\n")
+
+"""
+9. union() or | :
+Returns a new set containing all unique elements
+from both sets.
+"""
+print(f"Union of s1 and s2: {s1.union(s2)}\n")
+
+"""
+10. update() or |= :
+Updates the set in place by adding all elements
+from another set (union operation).
+"""
+s1 |= s2
+print(f"s1 after update(s1 |= s2): {s1}\n")
