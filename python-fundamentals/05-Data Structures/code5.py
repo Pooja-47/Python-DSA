@@ -204,3 +204,58 @@ Dictionary keys must be immutable data types such as:
 
 Mutable types like list, set, and dictionary cannot be used as keys.
 """
+
+# Traversing, Iterating on dictionaries (running loop):
+d={1:11,2:22,3:33,4:44,5:55}
+for i in d:
+    print(f"key {i} : value {d[i]}\n")
+
+# Practice Questions:-
+
+# Q1 Merge two dictionaries into one.
+d1={"a":100,"b":200,"z":300,"c":400}
+d2={"x":1000,"y":2000,"z":300,"c":4000}
+
+d1.update(d2)  # using method
+print(f"d1 after d1.update(d2): {d1}\n")
+
+for i in d2:
+    d1[i] = d2[i]
+print(d1,"\n")
+
+# Q2 Sum all values in a dictionary.
+
+d1={"a":100,"b":200,"z":300,"c":400}
+sum=0
+for i in d1:
+    sum = sum + d1[i]
+print(sum,"\n")
+
+# Q3 Count the frequency of each element in a list using a dictionary.
+
+l=["a","b","a","c","b","a"] # Normal way
+count=0
+for i in l:
+    if i == "a":
+        count += 1
+print(f"a {count} times\n")
+
+l=["a","b","a","c","b","a"] # Using dictionary 
+d={}
+for i in l:
+     if i in d.keys():
+        d[i] = d[i] + 1
+     else:
+        d[i]=1
+print(d)
+
+# Q4 Combine two dicts, adding values for common keys.
+
+d1={"a":100,"b":200,"z":300,"c":400}
+d2={"x":1000,"y":2000,"z":300,"c":4000}
+for i in d2:
+     if i in d1.keys():
+        d1[i] = d1[i] + d2[i]
+     else:
+         d1[i]=d2[i]
+print(d1)
