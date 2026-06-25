@@ -168,8 +168,24 @@ filename:
 Used when the file is created in the current working directory.
 """
 
-# Creating a file (in 'x' mode) in the current working directory
-# open("hello.txt", "x")
+
+# ==========================
+# File Modes Implementation
+# ==========================
+
+# --------------------------
+# 1. Create a File ('x' Mode)
+# --------------------------
+
+"""
+'x' mode creates a new file.
+
+- Creates the file if it does not exist.
+- Raises FileExistsError if the file already exists.
+"""
+
+#open("hello.txt", "x")
+
 
 """
 This creates a new file named 'hello.txt'.
@@ -187,21 +203,104 @@ You can change the directory using:
 cd folder_name
 """
 
-# # Another file in 'w' mode:
-# file=open("Intro.txt","w")
-# # After opening a file you can save it in a variable as above
-# data=input("Give your Intro as input to save in file:")
-# # The above input will be given to your intro.txt file 
-# # Now to store this data in our Intro.txt file:
-# file.write(data)
+""" 
+Important Fix:
+- 'x' mode is less commonly used than 'w' mode.
 
-# with 'r' mode:
-file=open("Intro.txt","r")
-print(file.read()) # this allows us to read the content of file
+- It is useful when we want to ensure that
+an existing file is not overwritten accidentally.
 
-# file=open("number-guessing-game.py","r")
-# print(file.read())
+- For this we can use with statement as:
+"""
+try:
+    with open("hello.txt", "x"):
+        print("File created successfully")
+except FileExistsError:
+    print("File already exists")
 
 
-# to update file made 'a'
-file=open("number.txt","a")
+
+# --------------------------
+# 2. Write to a File ('w' Mode)
+# --------------------------
+
+"""
+'w' mode is used to write data into a file.
+
+- Creates the file if it does not exist.
+- Overwrites all existing content if the file already exists.
+"""
+
+file = open("Intro.txt", "w")
+
+data = input("Enter your introduction: ")
+
+file.write(data)
+
+file.close()
+
+print("Data written successfully!")
+
+
+# --------------------------
+# 3. Read a File ('r' Mode)
+# --------------------------
+
+"""
+'r' mode is used to read file contents.
+
+- The file must already exist.
+- Raises FileNotFoundError if the file does not exist.
+"""
+
+file = open("Intro.txt", "r")
+
+print("\nContent of Intro.txt:")
+print(file.read())
+
+file.close()
+
+
+# --------------------------
+# 4. Append to a File ('a' Mode)
+# --------------------------
+
+"""
+'a' mode is used to add data at the end of a file.
+
+- Existing content remains unchanged.
+- Creates the file if it does not exist.
+"""
+
+file = open("Intro.txt", "a")
+file.write("\nLearning Python File Handling")
+file.close()
+
+file = open("Intro.txt", "r")
+print("\nIntro.txt after appending:")
+print(file.read())
+file.close()
+print("New data appended successfully!")
+
+# Performing CRUD operations using with keyword:
+"""
+-Always use the
+with
+statement — it automatically closes the file for you, even if an error occurs.
+"""
+# Syntax:
+"""
+with open("filename-or-path","mode") as f:
+   block of code
+
+- with : keyword
+- f : variable name where the object of open function is stored.
+- this uses indentation so when you are out of indentation it automatically closes the file.
+"""
+with open("Intro.txt","a") as f:
+    f.write("\nLet's learn together with NYC.")
+
+with open("Intro.txt","r") as f:
+    print(f"\nAfter appending Intro.txt using with keyword:\n{f.read()}")
+
+   

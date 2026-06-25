@@ -1,1 +1,3 @@
-Hello my name is abc i am studying in xyz college
+Hellow Everyone, My name is abc. I am a Btech CSE student at xyz college,India.
+Learning Python File Handling
+Let's learn together with NYC.
