@@ -210,14 +210,13 @@ Important Fix:
 - It is useful when we want to ensure that
 an existing file is not overwritten accidentally.
 
-- For this we can use with statement as:
+- For this we can use Exception handling and with statement as:
 """
 try:
     with open("hello.txt", "x"):
         print("File created successfully")
 except FileExistsError:
     print("File already exists")
-
 
 
 # --------------------------
@@ -282,7 +281,7 @@ print(file.read())
 file.close()
 print("New data appended successfully!")
 
-# Performing CRUD operations using with keyword:
+# Using with statement for file handling:
 """
 -Always use the
 with
@@ -302,5 +301,14 @@ with open("Intro.txt","a") as f:
 
 with open("Intro.txt","r") as f:
     print(f"\nAfter appending Intro.txt using with keyword:\n{f.read()}")
+
+"""
+Note:
+The above examples use open() and close()
+for learning purposes.
+
+In real projects, prefer using
+the with statement.
+"""
 
    
