@@ -62,3 +62,23 @@ object can access attributes and methods of a class.
 
 print(company.name)
 print(reebok.details)
+
+# Access method using object
+
+# CONSTRUCTOR :
+"""
+A constructor is a method that runs automatically when we
+call a class and this constructor function will target the
+objects location.
+
+Example :
+class Bag:
+    def __init__(self)  # here self targets the location of your object.
+
+you can give parameters to the constructor as it is used to take inputs from user. 
+"""
+class student:
+    def __init__(self,name,subject):    # name and subject are parameters.
+        print("Student Name:\nSubject:")
+student()   # called class
+obj = student("xyz","CSE") # creadted object its location is targeted by self
