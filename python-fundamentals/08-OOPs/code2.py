@@ -24,6 +24,8 @@ class Animal:
     def make_sound():    # Method
         print("bark")
 
+# ------------------------------------------------------------
+
 # Accessing class attributes and methods:
 """
 A class is initialised only one time when we first run the
@@ -36,49 +38,174 @@ methods.
 print(Animal.species)   # accessing attribute
 Animal.make_sound()     # accessing methods
 
-# Objects :
+# ------------------------------------------------------------
+
+# OBJECTS
 """
-We can create multiple objects for same class
+An object is an instance of a class.
 
-Syntax :
+A single class can have multiple objects.
+Each object has its own identity and can access the
+attributes and methods defined inside the class.
 
-variable_name = class_name()
+Syntax:
 
-here we called a class in variable outside the class
-now the variable_name is an object of class called in it
+object_name = ClassName()
+
+Example:
+student1 = Student()
+student2 = Student()
+
+Here, student1 and student2 are two different objects
+created from the same Student class.
 """
 
 class Bags:
-    name = "BagFactory"
+    company = "BagFactory"
+
     def details():
-        print("This is a factory that manufactures bags")
+        print("This factory manufactures bags.")
 
 company = Bags()
 reebok = Bags()
+
+print(company.company)
+
 """
-The object has all the powers of a class therefore a class
-object can access attributes and methods of a class.
+Notice that the method cannot be called using an object
+because it does not accept the object's reference.
+
+company.details()   # Gives an error
 """
 
-print(company.name)
-print(reebok.details)
+# ------------------------------------------------------------
 
-# Access method using object
+# SELF KEYWORD
 
-# CONSTRUCTOR :
 """
-A constructor is a method that runs automatically when we
-call a class and this constructor function will target the
-objects location.
+The 'self' keyword represents the current object.
 
-Example :
-class Bag:
-    def __init__(self)  # here self targets the location of your object.
+Whenever an object calls a method, Python automatically
+passes that object's reference as the first argument.
 
-you can give parameters to the constructor as it is used to take inputs from user. 
+Therefore, every instance method must have 'self' as its
+first parameter.
+
+Syntax:
+
+def method_name(self):
+    ...
 """
-class student:
-    def __init__(self,name,subject):    # name and subject are parameters.
-        print("Student Name:\nSubject:")
-student()   # called class
-obj = student("xyz","CSE") # creadted object its location is targeted by self
+
+class Bags:
+    company = "BagFactory"
+
+    def details(self):
+        print("This factory manufactures bags.")
+
+company = Bags()
+reebok = Bags()
+
+company.details()
+reebok.details()
+
+# ------------------------------------------------------------
+
+# CONSTRUCTOR
+
+"""
+A constructor is a special method that is executed
+automatically whenever an object is created.
+
+In Python, the constructor is written using:
+
+__init__()
+
+It is mainly used to initialize object data.
+
+Syntax:
+
+class Student:
+    def __init__(self):
+        ...
+
+A constructor can also receive parameters.
+"""
+
+class Student:
+
+    def __init__(self, name, subject):
+        print(f"Student Name : {name}")
+        print(f"Subject      : {subject}")
+
+Student("Pooja", "PCM")
+obj = Student("Kritika", "CSE")
+
+# ------------------------------------------------------------
+
+# WHY DO WE USE SELF?
+
+"""
+The 'self' keyword allows each object to store and access
+its own data.
+
+Suppose we create multiple Student objects.
+
+Each student has a different name and subject.
+
+Using self, these values are stored separately for every
+object.
+
+Without self, Python would not know which object's data
+is being referred to.
+"""
+
+class Student:
+
+    def __init__(self, name, subject):
+        self.name = name
+        self.subject = subject
+
+student1 = Student("Priyanka", "PCM")
+student2 = Student("Kritika", "CSE")
+
+print(student1.name)
+print(student2.subject)
+
+"""
+Output:
+
+Priyanka
+CSE
+"""
+
+# ------------------------------------------------------------
+
+# IMPORTANT POINTS
+
+"""
+1. Class
+   A blueprint used to create objects.
+
+2. Object
+   A real instance of a class.
+
+3. self
+   Refers to the current object.
+
+4. __init__()
+   Constructor that runs automatically whenever an object
+   is created.
+
+5. self.variable = value
+   Stores data inside a particular object.
+
+Example:
+
+student1.name = "Priyanka"
+student2.name = "Kritika"
+
+Both objects have their own independent data.
+"""
+
+
