@@ -208,4 +208,148 @@ student2.name = "Kritika"
 Both objects have their own independent data.
 """
 
+# ------------------------------------------------------------
 
+# TYPES OF ATTRIBUTES AND METHODS
+
+"""
+Python mainly has two types of attributes.
+
+1. Class Attribute
+   A variable that is created directly inside the class is called
+   a class attribute.
+
+   - Shared by all objects of the class.
+   - Stored only once in memory.
+
+2. Instance Attribute
+   A variable created using self inside the constructor or an
+   instance method is called an instance attribute.
+
+   - Each object has its own separate copy.
+   - Can have different values for different objects.
+"""
+
+class Year:
+    birth_year = 2009      # Class Attribute
+
+    def __init__(self, leap_year):
+        self.leap_year = leap_year      # Instance Attribute
+
+obj = Year(2000)
+
+print(obj.birth_year)
+print(obj.leap_year)
+
+# Instance attributes can be modified using an object
+obj.leap_year = 2004
+print(obj.leap_year)
+
+# ------------------------------------------------------------
+
+# CLASS ATTRIBUTE VS INSTANCE ATTRIBUTE
+
+"""
+Class Attribute
+---------------
+Created directly inside the class.
+
+Example:
+birth_year = 2009
+
+Access:
+obj.birth_year
+Year.birth_year
+
+Instance Attribute
+------------------
+Created using self.
+
+Example:
+self.leap_year = leap_year
+
+Access:
+obj.leap_year
+
+Only the instance attribute of that particular object changes.
+The class attribute remains the same.
+"""
+
+# ------------------------------------------------------------
+
+# TYPES OF METHODS
+
+"""
+Python mainly has three types of methods.
+
+1. Instance Method
+   - Works with an object of the class.
+   - Can access and modify instance attributes.
+   - Takes self as the first parameter.
+
+2. Class Method
+   - Works with the class itself.
+   - Can access and modify class attributes.
+   - Created using @classmethod.
+   - Takes cls as the first parameter.
+
+3. Static Method
+   - Does not automatically receive the object or the class.
+   - Created using @staticmethod.
+   - Behaves like a normal function placed inside a class.
+"""
+
+class Animal:
+
+    species = "Lion"      # Class Attribute
+
+    def __init__(self, name):
+        self.name = name      # Instance Attribute
+
+    # ---------------- Instance Method ----------------
+
+    def instance_method(self):
+        print("This is an instance method.")
+        print(f"Animal name : {self.name}\\n")
+
+    # ---------------- Class Method ----------------
+
+    @classmethod
+    def class_method(cls):
+        print("This is a class method.")
+        print(f"Species : {cls.species}\\n")
+
+    # ---------------- Static Method ----------------
+
+    @staticmethod
+    def static_method():
+        print("This is a static method.")
+        print("It does not access class or instance attributes.\\n")
+
+obj = Animal("Simba")
+
+obj.instance_method()
+obj.class_method()
+obj.static_method()
+
+# ------------------------------------------------------------
+
+# IMPORTANT DIFFERENCE
+
+"""
+Method Type       First Parameter     Can Access
+---------------------------------------------------------
+Instance Method   self                Instance + Class attributes
+Class Method      cls                 Class attributes
+Static Method     None                Neither self nor cls automatically
+
+Example:
+obj.instance_method()
+Animal.class_method()
+Animal.static_method()
+
+Remember:
+- self refers to the current object.
+- cls refers to the class itself.
+- A static method behaves like a normal utility function.
+"""
