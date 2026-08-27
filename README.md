@@ -85,28 +85,6 @@ The goal is not only to solve problems, but to deeply understand concepts and im
 
 ---
 
-## 📚 Future Additions
-
-- Advanced DSA topics
-- Python mini projects
-- SQL & database concepts
-- Notes & explanations
-- Placement preparation resources
-
----
-
-## ⭐ Current Status
-
-```text
-Python Fundamentals  → In Progress
-Basic DSA            → In Progress
-Advanced DSA         → Upcoming
-Projects             → Upcoming
-SQL                  → Upcoming
-```
-
----
-
 ## 🤝 Connect With Me
 
 GitHub: https://github.com/Pooja-47
