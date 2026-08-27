@@ -66,7 +66,7 @@ python-dsa/
 ## 📅 Learning Workflow
 
 ```text
-Learn → Practice → Implement → Organize → Push Weekly
+Learn → Practice → Implement → Organize → Push 
 ```
 
 This repository is maintained with structured weekly updates to track long-term learning and growth.
